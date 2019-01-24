@@ -1,4 +1,4 @@
-rng(6626) 
+rng(666) 
 
 ini=zeros(1,1);
  ini(1)=pi/2;
@@ -17,8 +17,8 @@ else
     
     dens=rand;
 end
-velx=randn;
-posy=1+abs(randn);
+velx=randn/2;
+posy=0.+abs(randn);
 
 steps=5;
 

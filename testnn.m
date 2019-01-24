@@ -3,18 +3,18 @@
 global net
 global dens vel
 
-load('data4000nn.mat')
+load('data_human_nn.mat')
 %load('new1700nnres1.mat')
 ang=pi/2;
 %for count_dens=0.03:0.02:0.1
     %count=150;
     conv=1;
   %  while conv==1
-        dens=1; % density coefficient - 1 is water 0 is air 0 doesnt work -try 0.001 or 0.01
-        vel=0;  % desired velocity in x - NOW IT CAN GO WOTH HGHER VELOCITIES ALSO
+        dens=0.5; % density coefficient - 1 is water 0 is air 0 doesnt work -try 0.001 or 0.01
+        vel=1;  % desired velocity in x - NOW IT CAN GO WOTH HGHER VELOCITIES ALSO
         velx=1;
         %velx=(count-1)/50;   % initial velocity
-        posy=0.4;  %initial position y
+        posy=0.8;  %initial position y
         steps=50; % number of steps
         
         ang=net([posy;velx;dens]); % first step

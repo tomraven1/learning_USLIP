@@ -9,8 +9,8 @@
 
 %x = [posyall;velxall;(squeeze(ydimall(1,2,:))'-squeeze(ydimall(2,2,:))')];
 
-%x = [posyall;velxall;densall];
-x = [posyall;velxall];
+x = [posyall;velxall;densall];
+%x = [posyall;velxall];
 
 t = xall;
 
@@ -19,7 +19,7 @@ t = xall;
 % 'trainlm' is usually fastest.
 % 'trainbr' takes longer but may be better for challenging problems.
 % 'trainscg' uses less memory. Suitable in low memory situations.
-trainFcn = 'trainbr';  % Levenberg-Marquardt backpropagation.
+trainFcn = 'trainlm';  % Levenberg-Marquardt backpropagation.
 
 % Create a Fitting Network
 hiddenLayerSize = 25;

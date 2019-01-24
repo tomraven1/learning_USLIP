@@ -109,8 +109,8 @@ global r0 alfa net dens vel
 
 %%%% CONTROLLER 
 if y(4)<0.05&&y(4)>-0.05 && t>0.01 %% condition of peak - this can be improved
-   % pid=0*(y(2)-vel);  %% to improve velocity tracking -has to be tuned -later work
-  %  alfa=net([y(3);y(2)-vel+pid;dens]);
+    pid=0*(y(2)-vel);  %% to improve velocity tracking -has to be tuned -later work
+    %alfa=net([y(3);y(2)-vel+pid;dens]);
     %dens=randi(3)/3;
  %  alfa=net([y(3);y(2)-vel;1]);
 end
