@@ -1,21 +1,20 @@
-function [rew,ydim,para,tedim,xtdim,yevdim,conv,n]=evalu(vars,velx,posy,dens,steps)
+function [rew,ydim,para,tedim,xtdim,yevdim,conv,n]=evalu_gen(vars,velx,posy,dens,grav,steps)
 addpath('./params')
 paramsInDim;
 controlsInDim;
 %TE=zeros(20,20000);
 %TW=zeros(20,20000);
 global   alfa
-global test_check
 
 para.count=1;
-
+global test_check
 
 
 if test_check==1
     global dens  %%uncomment for test
+    global grav  %%uncomment for test
 else
 end
-
 
 
 %PinDim(11)=0.2;
@@ -32,6 +31,7 @@ end
 %PinDim(4)=0;
 
 PinDim(4)=dens*PinDim(4);
+PinDim(5)=grav*PinDim(5);
 
 
 a=PinDim(9)*PinDim(4)*PinDim(11)*PinDim(7)*1/2*1/(PinDim(1)+PinDim(2));

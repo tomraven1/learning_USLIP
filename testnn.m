@@ -3,7 +3,12 @@
 global net
 global dens vel
 
+
 load('data_human_nn.mat')
+
+global test_check
+test_check=1;
+
 %load('new1700nnres1.mat')
 ang=pi/2;
 %for count_dens=0.03:0.02:0.1

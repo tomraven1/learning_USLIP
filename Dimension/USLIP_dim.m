@@ -105,12 +105,16 @@ end
 function [value,isterminal,direction] = eventsTDdisturbed(t,y,err) 
 %global r0 alfa
 
-global r0 alfa net dens vel
+global r0 alfa net dens vel test_check grav
 
 %%%% CONTROLLER 
 if y(4)<0.05&&y(4)>-0.05 && t>0.01 %% condition of peak - this can be improved
     pid=0*(y(2)-vel);  %% to improve velocity tracking -has to be tuned -later work
-    %alfa=net([y(3);y(2)-vel+pid;dens]);
+    if test_check ==1
+        
+        alfa=net([y(3);y(2)-vel+pid;dens]);
+    else
+    end
     %dens=randi(3)/3;
  %  alfa=net([y(3);y(2)-vel;1]);
 end

@@ -1,6 +1,4 @@
 rng(6626) 
-global test_check
-test_check=0;
 
 ini=zeros(1,1);
  ini(1)=pi/2;
@@ -8,17 +6,21 @@ ini=zeros(1,1);
 ub(1)=pi/1.1;
 lb(1)=pi/20;
 
+global test_check
+test_check=0;
 for kk=1:10000
     tic
 %  dens=abs(1-abs(randn/5));
-if kk<2000
-  dens=0.3+rand/3;
-elseif kk<4000
-     dens=0.5+rand/2;
-else
-    
-    dens=rand;
-end
+% if kk<2000
+%   dens=0.3+rand/3;
+% elseif kk<4000
+%      dens=0.5+rand/2;
+% else
+%     
+%     dens=rand;
+% end
+dens=0.001;
+grav=rand; %0-1
 velx=randn;
 posy=1+abs(randn);
 
@@ -26,7 +28,7 @@ steps=5;
 
 
 %options = gaoptimset('UseParallel',true,'FitnessLimit',0.0001);
-f = @(x)evalu(x,velx,posy,dens,steps);
+f = @(x)evalu_gen(x,velx,posy,dens,grav,steps);
 %options = gaoptimset('display','diagnose','Generations',10,'InitialPopulation',x(1:5),'UseParallel',true);
 %[x,fval] = ga(f,1,[],[],[],[],lb,ub,[],options);
 
@@ -35,7 +37,7 @@ f = @(x)evalu(x,velx,posy,dens,steps);
  [x,fval] = patternsearch(f,ini,[],[],[],[],lb,ub,[],options);
 fval
 toc
-[a,ydim]=evalu(x,velx,posy,dens,steps);
+[a,ydim]=evalu_gen(x,velx,posy,dens,grav,steps);
 velxall(kk)=velx;
 posyall(kk)=posy;
 densall(kk)=dens;
@@ -50,6 +52,6 @@ end
 % v1=0:0.001:1;
 % plot(v1,y(v1))
 
-save data_human_2.mat
+save data_human_grav.mat
 
 
