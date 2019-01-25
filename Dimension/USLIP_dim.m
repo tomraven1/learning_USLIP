@@ -37,7 +37,7 @@ maxstep=length(epsilon);
 
     for nstep=1:maxstep
 
-        tspan=TE2:0.001:TE2+5; %time
+        tspan=TE2:0.001:TE2+20; %time
         options = odeset('RelTol',1e-9,'AbsTol',1e-9,'Events',@eventsTDdisturbed);
         current_e=epsilon(nstep);
         [T,Y,TE,YE,IE]=ode113(@SwimPhaseDim,tspan,y0,options,epsilon(nstep));
@@ -112,7 +112,8 @@ if y(4)<0.05&&y(4)>-0.05 && t>0.01 %% condition of peak - this can be improved
     pid=0*(y(2)-vel);  %% to improve velocity tracking -has to be tuned -later work
     if test_check ==1
         
-        alfa=net([y(3);y(2)-vel+pid;dens]);
+        %alfa=net([y(3);y(2)-vel+pid;dens]);
+        alfa=net([y(3);y(2)-vel+pid;grav]);
     else
     end
     %dens=randi(3)/3;

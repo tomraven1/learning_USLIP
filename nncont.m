@@ -8,12 +8,18 @@
 %   xall - target data.
 
 %x = [posyall;velxall;(squeeze(ydimall(1,2,:))'-squeeze(ydimall(2,2,:))')];
+idx=find(fvalall>0.001);
+
 
 x = [posyall;velxall;densall];
+x = [posyall;velxall;gravall];
 %x = [posyall;velxall];
 
 t = xall;
 
+
+x(:,idx)=[];
+t(idx)=[];
 % Choose a Training Function
 % For a list of all training functions type: help nntrain
 % 'trainlm' is usually fastest.
