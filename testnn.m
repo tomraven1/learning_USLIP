@@ -15,14 +15,14 @@ ang=pi/2;
     %count=150;
     conv=1;
   %  while conv==1
-        dens=0.5; % density coefficient - 1 is water 0 is air 0 doesnt work -try 0.001 or 0.01
-        vel=1;  % desired velocity in x - NOW IT CAN GO WOTH HGHER VELOCITIES ALSO
-        velx=1;
+        dens=0.9; % density coefficient - 1 is water 0 is air 0 doesnt work -try 0.001 or 0.01
+        vel=-2;  % desired velocity in x - NOW IT CAN GO WOTH HGHER VELOCITIES ALSO
+        velx=2;
         %velx=(count-1)/50;   % initial velocity
-        posy=0.8;  %initial position y
+        posy=1.5;  %initial position y
         steps=50; % number of steps
         
-        ang=net([posy;velx;dens]); % first step
+        ang=net([posy;velx-vel;dens]); % first step
         
         [a,ydim,junk,tedim,xtdim,yevdim,conv,c_step]=evalu(ang,velx,posy,dens,steps);
         %res(jj)=a;

@@ -1,4 +1,4 @@
-rng(2246) 
+rng(224566) 
 
 ini=zeros(1,1);
  ini(1)=pi/2;
@@ -8,7 +8,7 @@ lb(1)=pi/20;
 
 global test_check
 test_check=0;
-for kk=1030:10000
+for kk=1280:10000
     tic
 %  dens=abs(1-abs(randn/5));
 % if kk<2000
@@ -22,7 +22,7 @@ for kk=1030:10000
 dens=0.001;
 grav=rand; %0-1
 velx=randn*3;
-posy=1+abs(randn)*5;
+posy=1+abs(randn)*20;
 
 steps=5;
 
