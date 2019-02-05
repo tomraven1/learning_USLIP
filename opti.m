@@ -8,11 +8,12 @@ ini=zeros(1,1);
 ub(1)=pi/1.1;
 lb(1)=pi/20;
 
-for kk=1:10000
+for kk=110:10000
     tic
 %  dens=abs(1-abs(randn/5));
 if kk<2000
-  dens=0.3+rand/3;
+  %dens=0.3+rand/3;
+  dens=rand;
 elseif kk<4000
      dens=0.5+rand/2;
 else
@@ -50,6 +51,6 @@ end
 % v1=0:0.001:1;
 % plot(v1,y(v1))
 
-save data_human_2.mat
+save data_human_Ro.mat
 
 

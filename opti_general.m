@@ -8,7 +8,7 @@ lb(1)=pi/20;
 
 global test_check
 test_check=0;
-for kk=1280:10000
+for kk=1:10000
     tic
 %  dens=abs(1-abs(randn/5));
 % if kk<2000
@@ -33,7 +33,7 @@ f = @(x)evalu_gen(x,velx,posy,dens,grav,steps);
 %[x,fval] = ga(f,1,[],[],[],[],lb,ub,[],options);
 
 
- options = optimoptions('patternsearch','Display','none','UseParallel',true,'MaxIterations',30);
+options = optimoptions('patternsearch','Display','none','UseParallel',true,'MaxIterations',30);
  [x,fval] = patternsearch(f,ini,[],[],[],[],lb,ub,[],options);
 fval
 toc
@@ -53,6 +53,6 @@ end
 % v1=0:0.001:1;
 % plot(v1,y(v1))
 
-save data_human_grav.mat
+save data_human_grav_Ro.mat
 
 

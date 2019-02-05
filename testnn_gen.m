@@ -14,10 +14,10 @@ ang=pi/2;
 
 conv=1;
 %  while conv==1
-dens=0.002; % density coefficient - 1 is water 0 is air 0 doesnt work -try 0.001 or 0.01
+dens=0.001; % density coefficient - 1 is water 0 is air 0 doesnt work -try 0.001 or 0.01
 vel=2;  % desired velocity in x - NOW IT CAN GO WOTH HGHER VELOCITIES ALSO
-grav=0.6;
-velx=0;
+grav=0.7;
+velx=2;
 %velx=(count-1)/50;   % initial velocity
 posy=1;  %initial position y
 steps=50; % number of steps
